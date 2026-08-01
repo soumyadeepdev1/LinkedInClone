@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: user-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - /api/v1/users/**
+              filter:
+                - stripPrefix: 2
+            - id: post-service
+              uri: lb://POST-SERVICE
+              predicates:
+                - /api/v1/posts/**
+              filter:
+                - stripPrefix: 2
+            - id: connection-service
+              uri: lb://CONNECTION-SERVICE
+              predicates:
+                - /api/v1/connections/**
+              filter:
+                - stripPrefix: 2

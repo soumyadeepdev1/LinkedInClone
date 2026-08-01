@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: connections
+
+  neo4j:
+    uri: ${NEO4J_DB_URI:neo4j://127.0.0.1:7687}
+    authentication:
+      username: ${NEO4J_USERNAME:neo4j}
+      password: ${NEO4J_PASSWORD:password}
+
+server:
+  port: 8082
+
+
